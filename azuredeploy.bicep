@@ -151,7 +151,7 @@ resource seed 'Microsoft.ContainerInstance/containerGroups@2023-05-01' = {
           command: [
             '/bin/bash'
             '-c'
-            'echo ${base64(seedScript)} | base64 -d | bash'
+            'echo ${base64(seedScript)} | base64 -d | tr -d \'\\r\' | bash'
           ]
         }
       }
